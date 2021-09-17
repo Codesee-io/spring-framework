@@ -12,9 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Run map action on action code
     steps:
-      - name: Check ulimits
-        run: ulimit -a
-        
       - name: checkout
         id: checkout
         uses: actions/checkout@v2
@@ -62,5 +59,4 @@ jobs:
         with:
           api_token: ${{ secrets.CODESEE_ARCH_DIAG_API_TOKEN }}
           github_ref: ${{ github.ref }}
-        env:
-          CODESEE_DEPS_JAVA_OPTS: -Xmx8196m
+          support_typescript: true
